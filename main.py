@@ -51,7 +51,7 @@ def GetTextTimeLeft():
     return int(heure)*60*60+int(min)*60+int(sec)
 
 
-login('BrokeName')
+login('Clement_FR')
 time.sleep(2)
 # for i in range(3):
 #    VoteTimeInit(i)
@@ -60,3 +60,5 @@ time.sleep(2)
 # Global.driver.execute_script("window.open('');")
 # Global.driver.switch_to.window(Global.driver.window_handles[1])
 # Global.driver.close()
+
+#
