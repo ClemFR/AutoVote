@@ -1,11 +1,9 @@
 import time
+import TimeChecker
 import VButton
 from Variables import MyGlobals as Global
+from selenium.webdriver.common.keys import Keys
 import AlcasarLogin
-
-###Variables Globales
-
-###Fin Variables Globales
 
 
 # Open the website
@@ -53,9 +51,12 @@ def GetTextTimeLeft():
     return int(heure)*60*60+int(min)*60+int(sec)
 
 
-login('Clement_FR')
+login('BrokeName')
 time.sleep(2)
-for i in range(3):
-    VoteTimeInit(i)
-    time.sleep(1)
-print(Global.timer1H-time.time(), Global.timer1H30-time.time(), Global.timer2H-time.time())
+# for i in range(3):
+#    VoteTimeInit(i)
+#    time.sleep(1)
+
+# Global.driver.execute_script("window.open('');")
+# Global.driver.switch_to.window(Global.driver.window_handles[1])
+# Global.driver.close()
