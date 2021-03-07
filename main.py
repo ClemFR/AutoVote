@@ -2,9 +2,8 @@ import time
 import TimeChecker
 import VButton
 from Variables import MyGlobals as Global
-from selenium.webdriver.common.keys import Keys
+import datetime
 import AlcasarLogin
-
 
 # Open the website
 Global.driver.get('https://ulycraft.fr/vote')
@@ -48,17 +47,25 @@ def GetTextTimeLeft():
         heure = "0"
         min = text[base:text.find("minutes") - 1]
         sec = text[text.find("minutes") + 8:text.find("secondes") - 1]
-    return int(heure)*60*60+int(min)*60+int(sec)
+    return int(heure) * 60 * 60 + int(min) * 60 + int(sec)
 
 
-login('Clement_FR')
-time.sleep(2)
-# for i in range(3):
-#    VoteTimeInit(i)
-#    time.sleep(1)
+def Loop():
+    print("[" + datetime.datetime.fromtimestamp(int(round(time.time()))).strftime("%H:%M:%S") + "] - Loop initialisé")
+    while True:
+        TimeChecker.timechecker()
+
 
 # Global.driver.execute_script("window.open('');")
 # Global.driver.switch_to.window(Global.driver.window_handles[1])
 # Global.driver.close()
 
 #
+login('Clement_FR')
+time.sleep(2)
+for i in range(3):
+    VoteTimeInit(i)
+    time.sleep(1)
+print("Vote 1H estimé à -- " + datetime.datetime.fromtimestamp(int(round(Global.timer1H))).strftime("%H:%M:%S") + "\nVote 1H30 estimé à -- " + datetime.datetime.fromtimestamp(int(round(Global.timer1H30))).strftime("%H:%M:%S") + "\nVote 2H estimé à -- " + datetime.datetime.fromtimestamp(int(round(Global.timer2H))).strftime("%H:%M:%S") + "\n")
+
+Loop()

@@ -1,11 +1,23 @@
 from Variables import MyGlobals as Global
 import VButton
 import time
+import datetime
 
-from datetime import datetime
+
+def loginbis(pseudo):
+    id_box = Global.driver.find_element_by_name('username')
+    # Send id information
+    id_box.send_keys(str(pseudo))
+    # Find login button
+    login_button = Global.driver.find_element_by_xpath(
+        "/html/body/div/div/div/div/div/div/form/button[@class='btn btn-success']")
+    # Click login
+    login_button.click()
+
 
 def TabFocus(TabNumber):
     Global.driver.switch_to.window(Global.driver.window_handles[TabNumber])
+
 
 def timechecker():
     current = int(round(time.time()))
@@ -32,8 +44,14 @@ def timechecker():
     time.sleep(30)
 
 
+def Reset():
+    Global.driver.refresh()
+    loginbis('Clement_FR')
+
+
 def Voteur(VoteNo):
     if VoteNo == 0:
+        Reset()
         VButton.vote1H()
         time.sleep(5)
         TabFocus(1)
@@ -44,7 +62,10 @@ def Voteur(VoteNo):
                                                                 "1]/div/div/div/div/div/button[@class='btn btn-success "
                                                                 "btn-block get-reward']")
         recompense_button.click()
+        time.sleep(2)
+        Reset()
     if VoteNo == 1:
+        Reset()
         VButton.vote1H30()
         time.sleep(5)
         TabFocus(1)
@@ -55,7 +76,10 @@ def Voteur(VoteNo):
                                                                 "1]/div/div/div/div/div/button[@class='btn btn-success "
                                                                 "btn-block get-reward']")
         recompense_button.click()
+        time.sleep(2)
+        Reset()
     if VoteNo == 2:
+        Reset()
         VButton.vote2H()
         time.sleep(5)
         TabFocus(1)
@@ -66,3 +90,5 @@ def Voteur(VoteNo):
                                                                 "1]/div/div/div/div/div/button[@class='btn btn-success "
                                                                 "btn-block get-reward']")
         recompense_button.click()
+        time.sleep(2)
+        Reset()
