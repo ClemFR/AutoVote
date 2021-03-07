@@ -20,6 +20,7 @@ def TabFocus(TabNumber):
 
 
 def timechecker():
+    print("[" + time.strftime("%H:%M:%S", time.localtime()) + "] -- Time Checker looped")
     current = int(round(time.time()))
     if Global.timer1H - current < -5:
         Voteur(0)
@@ -51,7 +52,9 @@ def Reset():
 
 def Voteur(VoteNo):
     if VoteNo == 0:
+        print("[" + time.strftime("%H:%M:%S", time.localtime()) + "] -- Vote 1H en cours d'execution")
         Reset()
+        time.sleep(2)
         VButton.vote1H()
         time.sleep(5)
         TabFocus(1)
@@ -65,7 +68,9 @@ def Voteur(VoteNo):
         time.sleep(2)
         Reset()
     if VoteNo == 1:
+        print("[" + time.strftime("%H:%M:%S", time.localtime()) + "] -- Vote 1H30 en cours d'execution")
         Reset()
+        time.sleep(2)
         VButton.vote1H30()
         time.sleep(5)
         TabFocus(1)
@@ -79,7 +84,9 @@ def Voteur(VoteNo):
         time.sleep(2)
         Reset()
     if VoteNo == 2:
+        print("[" + time.strftime("%H:%M:%S", time.localtime()) + "] -- Vote 2H en cours d'execution")
         Reset()
+        time.sleep(2)
         VButton.vote2H()
         time.sleep(5)
         TabFocus(1)
