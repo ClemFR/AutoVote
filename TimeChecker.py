@@ -42,11 +42,12 @@ def timechecker():
         print("[" + time.strftime("%H:%M:%S", time.localtime()) + "] -- Voté pour le site d'intervalle 1H \nProchain "
                                                                   "vote estimé à " +
               datetime.datetime.fromtimestamp(int(round(Global.timer1H))).strftime("%H:%M:%S"))
-    time.sleep(30)
+    time.sleep(60)
 
 
 def Reset():
     Global.driver.refresh()
+    time.sleep(2)
     loginbis('Clement_FR')
 
 
