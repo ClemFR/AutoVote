@@ -29,14 +29,14 @@ def timechecker():
                                                                   "vote estimé à " +
               datetime.datetime.fromtimestamp(int(round(Global.timer1H))).strftime("%H:%M:%S"))
 
-    if Global.timer1H - current < -5:
+    if Global.timer1H30 - current < -5:
         Voteur(1)
         Global.timer1H30 = Global.timer1H30 + 5420
         print("[" + time.strftime("%H:%M:%S", time.localtime()) + "] -- Voté pour le site d'intervalle 1H \nProchain "
                                                                   "vote estimé à " +
               datetime.datetime.fromtimestamp(int(round(Global.timer1H))).strftime("%H:%M:%S"))
 
-    if Global.timer1H - current < -5:
+    if Global.timer2H - current < -5:
         Voteur(2)
         Global.timer2H = Global.timer2H + 7220
         print("[" + time.strftime("%H:%M:%S", time.localtime()) + "] -- Voté pour le site d'intervalle 1H \nProchain "
